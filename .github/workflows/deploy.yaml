@@ -36,11 +36,21 @@ jobs:
         node-version: 20
         cache: 'npm'
 
-    - name: Install dependencies  # 安装项目依赖
+      # 缓存 npm node_modules
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-npm-cache-
+
+      # 安装依赖 npm
+    - name: Install dependencies
+      # 如果没有命中缓存才执行 npm install
+      if: steps.cache-deps.outputs.cache-hit != 'true'
       run: npm install
 
-    - name: Build  # 构建项目
-      run: npm run build
 
     - name: Deploy to GitHub Pages
     # 此actions的官方文档 https://github.com/JamesIves/github-pages-deploy-action
