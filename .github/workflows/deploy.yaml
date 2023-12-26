@@ -60,3 +60,4 @@ jobs:
         FOLDER: .
         # 希望部署的分支，默认gh-pages
         BRANCH: gh-pages
+        TOKEN: ${{ secrets.ACCESS_TOKEN }}
