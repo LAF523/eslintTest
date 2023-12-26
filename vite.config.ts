@@ -6,7 +6,7 @@ import pkg from './package.json';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: `/${pkg.name}/`,
+  base: '/eslintTest/',
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.scss', '.css'],
     alias: {
