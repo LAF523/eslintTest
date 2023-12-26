@@ -10,8 +10,7 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix --quiet ./",
     "prepare": "husky install",
     "stylelint": "stylelint \"src/**/*.(less|css)\" --fix",
-    "commit": "npx git-cz",
-    "deploy": "gh-pages -d dist -r https://github.com/LAF523/eslintTest.git -b gh-pages"
+    "commit": "npx git-cz"
   },
   "dependencies": {
     "ahooks": "^3.7.8",
