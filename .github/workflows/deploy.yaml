@@ -29,20 +29,17 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      # clone 该仓库源码到工作流中
-      - name: Checkout
+      - name: Checkout  # clone该仓库源码到工作流中
         uses: actions/checkout@v4
-        # 设置node环境,指定node版本为20,并缓存npm包提升后续执行速度
-      - name: Set up Node
+
+      - name: Set up Node  # 设置node环境,指定node版本为20,并缓存npm包提升后续执行速度
         uses: actions/setup-node@v3
         with:
           node-version: 20
           cache: 'npm'
-        # 安装项目依赖
-      - name: Install dependencies
+      - name: Install dependencies  # 安装项目依赖
         run: npm install
-        # 执行构建
-      - name: Build
+      - name: Build  # 构建项目
         run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v3
