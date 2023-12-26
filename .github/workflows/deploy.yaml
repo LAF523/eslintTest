@@ -1,6 +1,6 @@
 # 将静态内容部署到 GitHub Pages 的简易工作流程
 name: Build and Deploy # 工作流名称 如省略使用当前文件名
-run-name: Deploy by @${{ github.actor }} - ${{ github.event.head_commit.message }} # 工作流运行时的名称 作者+最新提交信息 如省略显示提交时的commit信息
+run-name: Deploy by @${{ github.actor }} # 工作流运行时的名称 作者 如省略显示提交时的commit信息
 
 on:
   # 监听push动作,仅在推送到默认分支时运行。
@@ -24,9 +24,6 @@ concurrency:
 jobs:
   # 定义一个名为 deploy 的工作流
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout  # clone该仓库源码到工作流中
