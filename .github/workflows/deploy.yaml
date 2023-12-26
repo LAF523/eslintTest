@@ -27,33 +27,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout  # clone该仓库源码到工作流中
-        uses: actions/checkout@v4
+    - name: Checkout  # clone该仓库源码到工作流中
+      uses: actions/checkout@v4
 
-      - name: Set up Node  # 设置node环境,指定node版本为20,并缓存npm包提升后续执行速度
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          cache: 'npm'
+    - name: Set up Node  # 设置node环境,指定node版本为20,并缓存npm包提升后续执行速度
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20
+        cache: 'npm'
 
-      - name: Install dependencies  # 安装项目依赖
-        run: npm install
+    - name: Install dependencies  # 安装项目依赖
+      run: npm install
 
-      - name: Build  # 构建项目
-        run: npm run build
+    - name: Build  # 构建项目
+      run: npm run build
 
-       - name: Deploy to GitHub Pages
-        # 此actions的官方文档 https://github.com/JamesIves/github-pages-deploy-action
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          # 要部署的文件夹，必填，build 构建后的打包文件夹
-          FOLDER: dist
-          # 希望部署的分支，默认gh-pages
-          BRANCH: gh-pages
-          # 默认情况是不需要填的，如果您需要更多权限，例如部署到另一个存储库才需要填写
-          # 仓库范围的访问令牌，可以将个人令牌的值存储在 GitHub Secrets 中
-          TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          # 部署到GitHub的不同仓库 <用户名>/<仓库名>
-          # 此选项必须配置了TOKEN才能正常执行
-          REPOSITORY-NAME: LAF523/eslintTest
+      - name: Deploy to GitHub Pages
+      # 此actions的官方文档 https://github.com/JamesIves/github-pages-deploy-action
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        # 要部署的文件夹，必填，build 构建后的打包文件夹
+        FOLDER: dist
+        # 希望部署的分支，默认gh-pages
+        BRANCH: gh-pages
+        # 默认情况是不需要填的，如果您需要更多权限，例如部署到另一个存储库才需要填写
+        # 仓库范围的访问令牌，可以将个人令牌的值存储在 GitHub Secrets 中
+        TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        # 部署到GitHub的不同仓库 <用户名>/<仓库名>
+        # 此选项必须配置了TOKEN才能正常执行
+        REPOSITORY-NAME: LAF523/eslintTest
 
