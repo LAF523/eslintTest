@@ -42,8 +42,8 @@ jobs:
     - name: Build  # 构建项目
       run: npm run build
 
-      - name: Deploy to GitHub Pages
-      # 此actions的官方文档 https://github.com/JamesIves/github-pages-deploy-action
+    - name: Deploy to GitHub Pages
+    # 此actions的官方文档 https://github.com/JamesIves/github-pages-deploy-action
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         # 要部署的文件夹，必填，build 构建后的打包文件夹
@@ -56,4 +56,3 @@ jobs:
         # 部署到GitHub的不同仓库 <用户名>/<仓库名>
         # 此选项必须配置了TOKEN才能正常执行
         REPOSITORY-NAME: LAF523/eslintTest
-
