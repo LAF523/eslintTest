@@ -25,6 +25,7 @@ jobs:
   # 定义一个名为 deploy 的工作流
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout  # clone该仓库源码到工作流中
         uses: actions/checkout@v4
@@ -34,8 +35,10 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+
       - name: Install dependencies  # 安装项目依赖
         run: npm install
+
       - name: Build  # 构建项目
         run: npm run build
 
