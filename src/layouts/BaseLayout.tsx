@@ -23,6 +23,7 @@ const items: MenuItem[] = [
   getItem('布局', '布局', <TeamOutlined />, [getItem('Team 1', '/page2')]),
   getItem('导航', '导航', <TeamOutlined />, [getItem('Team 1', '/page1/test')])
 ];
+console.log(import.meta.env.TEST);
 
 const BaseLayout: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);

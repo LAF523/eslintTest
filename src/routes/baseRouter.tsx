@@ -12,7 +12,7 @@ function Loading(Element: React.FC) {
 
 const Layout = Loading(lazy(() => import('../layouts/BaseLayout')));
 const Page1 = Loading(lazy(() => import('../pages/Page1')));
-const Page2 = Loading(lazy(() => import('../pages/Page1')));
+const Page2 = Loading(lazy(() => import('../pages/Page2')));
 const NotFound = Loading(lazy(() => import('../pages/NotFound')));
 const router = [
   {
