@@ -25,13 +25,13 @@ jobs:
 
       - name: install
 
-        run: yarn
+        run: npm i
 
         # 打包构建
 
       - name: build
 
-        run: yarn build:test
+        run: npm run build
 
         # 部署运行
 
