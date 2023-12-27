@@ -6,6 +6,8 @@ on:
   # 监听push动作,仅在推送到默认分支时运行。
   push:
     branches: ['main']
+  paths-ignore:
+    - 'README.md'
 
   # 这个选项可以使你手动在 Action tab 页面触发工作流
   workflow_dispatch:
@@ -51,9 +53,8 @@ jobs:
       if: steps.cache-deps.outputs.cache-hit != 'true'
       run: npm install
 
-    - name: Run Build Script
+    - name: Build With Vite
       run: npm run build
-
 
     - name: Deploy to GitHub Pages
     # 此actions的官方文档 https://github.com/JamesIves/github-pages-deploy-action
