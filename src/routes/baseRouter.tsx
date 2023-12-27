@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Spin } from 'antd';
-import { Navigate } from 'react-router-dom';
+// import { Navigate } from 'react-router-dom';
 
 function Loading(Element: React.FC) {
   return (
@@ -32,10 +32,6 @@ const router = [
       {
         path: '/page2',
         element: Page2
-      },
-      {
-        path: '/',
-        element: <Navigate to="/page1" />
       },
       {
         path: '*',
