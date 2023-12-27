@@ -64,3 +64,11 @@ jobs:
         # 希望部署的分支，默认gh-pages
         BRANCH: gh-pages
         TOKEN: ${{ secrets.ACCESS_TOKEN }}
+
+    - name: Notify Deployment Success
+      if: success()
+      run: echo "Deployment successful!"
+
+    - name: Notify Deployment Failure
+      if: failure()
+      run: echo "Deployment failed!"
