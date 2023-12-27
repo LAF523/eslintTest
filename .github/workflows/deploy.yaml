@@ -33,7 +33,7 @@ jobs:
     - name: Set up Node  # 设置node环境,指定node版本为20,并缓存npm包提升后续执行速度
       uses: actions/setup-node@v3
       with:
-        node-version: 20
+        node-version: '20'
         cache: 'npm'
 
       # 缓存 npm node_modules
@@ -51,7 +51,7 @@ jobs:
       if: steps.cache-deps.outputs.cache-hit != 'true'
       run: npm install
 
-    - name: Build
+    - name: Run Build Script
       run: npm run build
 
 
