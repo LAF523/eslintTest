@@ -6,6 +6,8 @@ on:
   # 监听push动作,仅在推送到默认分支时运行。
   push:
     branches: ['main']
+    paths-ignore:   # 下列文件的变更不触发部署，可以自行添加
+      - README.md
 
   # 这个选项可以使你手动在 Action tab 页面触发工作流
   workflow_dispatch:
