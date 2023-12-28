@@ -56,12 +56,19 @@ jobs:
     - name: Build With Vite
       run: npm run build
 
-    - name: Deploy to GitHub Pages
-    # 此actions的官方文档 https://github.com/JamesIves/github-pages-deploy-action
-      uses: JamesIves/github-pages-deploy-action@v4
+    # - name: Deploy to GitHub Pages
+    # # 此actions的官方文档 https://github.com/JamesIves/github-pages-deploy-action
+    #   uses: JamesIves/github-pages-deploy-action@v4
+    #   with:
+    #     # 要部署的文件夹，必填，build 构建后的打包文件夹
+    #     FOLDER: dist
+    #     # 希望部署的分支，默认gh-pages
+    #     BRANCH: gh-pages
+    #     TOKEN: ${{ secrets.ACCESS_TOKEN }}
+    # 部署到 GitHub pages
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action
       with:
-        # 要部署的文件夹，必填，build 构建后的打包文件夹
-        FOLDER: dist
-        # 希望部署的分支，默认gh-pages
-        BRANCH: gh-pages
-        TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        publish_dir: ./build # 部署打包后的 build 目录
+        github_token: ${{ secrets.ACCESS_TOKEN }} # secret 名
+        commit_message: 自动部署 # 部署时的 git 提交信息，自由填写
